@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Ihsan</title>
+    <title>Portfolio | Najeeb</title>
     <style>
         /* CSS Variables */
         :root {
@@ -16,9 +16,7 @@
             --card-hover-border: #444;
             --accent: #ffffff;
             --radius: 20px;
-            /* Curved borders */
             --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-            /* Slight shadow */
             --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             --font-serif: 'Georgia', 'Times New Roman', serif;
         }
@@ -159,13 +157,12 @@
         /* Carousel Section */
         .carousel-section {
             margin-bottom: 4rem;
+            position: relative;
         }
 
         .section-header {
             margin-bottom: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
+            text-align: center;
         }
 
         .section-title {
@@ -180,12 +177,13 @@
             box-shadow: var(--shadow);
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            min-height: 400px;
+            min-height: 450px;
+            /* Increased height for content */
         }
 
         .carousel-track {
             display: flex;
-            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             height: 100%;
         }
 
@@ -197,30 +195,38 @@
             justify-content: center;
         }
 
-        /* Slide Control Elements */
-        .carousel-nav {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .nav-btn {
-            background: transparent;
+        /* Slide Navigation Buttons (Absolute Positioned) */
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
             border: 1px solid var(--card-border);
             color: var(--text-main);
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.2s ease;
+            z-index: 10;
         }
 
-        .nav-btn:hover {
+        .carousel-nav-btn:hover {
             background: var(--text-main);
             color: var(--bg-color);
         }
+
+        .nav-prev {
+            left: 20px;
+        }
+
+        .nav-next {
+            right: 20px;
+        }
+
 
         /* Slide Content Styles */
         .slide-title {
@@ -231,7 +237,7 @@
             display: inline-block;
         }
 
-        /* Socials Grid in Slide */
+        /* Socials Grid and Styles (Previously Defined + Tweaks) */
         .socials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -274,7 +280,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Specific Hover Effects */
         .social-card:hover .social-icon.whatsapp {
             background: #25D366;
             box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
@@ -295,8 +300,86 @@
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
         }
 
+        /* Skills Slide */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
 
-        /* Graduation Slide */
+        .skill-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: var(--text-main);
+            color: var(--bg-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Certifications Slide */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            height: 200px;
+        }
+
+        .cert-img-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .cert-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .cert-card:hover .cert-info {
+            transform: translateY(0);
+        }
+
+        .cert-card:hover .cert-img-placeholder {
+            opacity: 0.5;
+        }
+
+        /* Graduation & Form (Reuse previous styles) */
         .grad-details {
             display: flex;
             gap: 2rem;
@@ -308,17 +391,6 @@
             color: var(--text-muted);
         }
 
-        .grad-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .grad-info p {
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Contact Form Slide */
         .contact-form {
             display: flex;
             flex-direction: column;
@@ -370,21 +442,28 @@
             font-size: 0.8rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero {
                 grid-template-columns: 1fr;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
             }
 
             .carousel-slide {
                 padding: 1.5rem;
             }
 
-            .socials-grid {
+            .nav-prev {
+                left: 10px;
+                width: 35px;
+                height: 35px;
+            }
+
+            .nav-next {
+                right: 10px;
+                width: 35px;
+                height: 35px;
+            }
+
+            .cert-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -395,7 +474,7 @@
 
     <div class="container">
         <header>
-            <div class="logo">IHN.</div>
+            <div class="logo">NJ.</div>
             <div class="status">
                 <div class="status-dot"></div>
                 <span id="time-display">Loading...</span>
@@ -408,7 +487,7 @@
                 <h1>Designing Logic.<br>Building Dreams.</h1>
                 <p>An innovative developer crafting seamless digital solutions. Explore my journey, connections, and
                     work below.</p>
-                <a href="#connect" class="cta-btn">Connect With Me</a>
+                <a href="#explore" class="cta-btn">Explore Portfolio</a>
             </div>
 
             <div class="profile-container" id="profile-card">
@@ -422,21 +501,72 @@
             </div>
         </section>
 
-        <section class="carousel-section" id="connect">
+        <section class="carousel-section" id="explore">
             <div class="section-header">
-                <h2 class="section-title">Explore</h2>
-                <div class="carousel-nav">
-                    <button class="nav-btn" onclick="moveSlide(-1)">&#8592;</button>
-                    <button class="nav-btn" onclick="moveSlide(1)">&#8594;</button>
-                </div>
+                <h2 class="section-title">My Journey</h2>
             </div>
 
-            <div class="carousel-container">
+            <button class="carousel-nav-btn nav-prev" onclick="moveSlide(-1)">&#8592;</button>
+            <button class="carousel-nav-btn nav-next" onclick="moveSlide(1)">&#8594;</button>
+
+            <div class="carousel-container" id="carousel-container">
                 <div class="carousel-track" id="track">
 
-                    <!-- Slide 1: Socials -->
+                    <!-- Slide 1: Skills -->
                     <div class="carousel-slide">
-                        <h3 class="slide-title">Connect</h3>
+                        <h3 class="slide-title">Technical Skills</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">HTML5</div>
+                            <div class="skill-item">CSS3</div>
+                            <div class="skill-item">JavaScript</div>
+                            <div class="skill-item">Java</div>
+                            <div class="skill-item">Git & GitHub</div>
+                            <div class="skill-item">Backend API</div>
+                            <div class="skill-item">Database (SQL)</div>
+                            <div class="skill-item">UI/UX Design</div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Certifications -->
+                    <div class="carousel-slide">
+                        <h3 class="slide-title">Certifications</h3>
+                        <div class="cert-grid">
+                            <div class="cert-card">
+                                <div class="cert-img-placeholder">
+                                    <span>AWS Certified</span>
+                                    <small>(Image Placeholder)</small>
+                                </div>
+                                <div class="cert-info">
+                                    <h4>AWS Cloud Practitioner</h4>
+                                    <p>Issued: Jan 2024</p>
+                                </div>
+                            </div>
+                            <div class="cert-card">
+                                <div class="cert-img-placeholder">
+                                    <span>Java Developer</span>
+                                    <small>(Image Placeholder)</small>
+                                </div>
+                                <div class="cert-info">
+                                    <h4>Oracle Certified Associate</h4>
+                                    <p>Issued: Dec 2023</p>
+                                </div>
+                            </div>
+                            <div class="cert-card">
+                                <div class="cert-img-placeholder">
+                                    <span>Web Design</span>
+                                    <small>(Image Placeholder)</small>
+                                </div>
+                                <div class="cert-info">
+                                    <h4>Responsive Web Design</h4>
+                                    <p>FreeCodeCamp</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Socials -->
+                    <div class="carousel-slide">
+                        <h3 class="slide-title">Connect With Me</h3>
                         <div class="socials-grid">
                             <a href="#" class="social-card">
                                 <div class="social-icon whatsapp">
@@ -477,7 +607,7 @@
                         </div>
                     </div>
 
-                    <!-- Slide 2: Graduation Details -->
+                    <!-- Slide 4: Graduation Details -->
                     <div class="carousel-slide">
                         <h3 class="slide-title">Education & Milestones</h3>
                         <div class="grad-details">
@@ -495,9 +625,9 @@
                         </div>
                     </div>
 
-                    <!-- Slide 3: Contact Form -->
+                    <!-- Slide 5: Contact Form -->
                     <div class="carousel-slide">
-                        <h3 class="slide-title">Connect Me</h3>
+                        <h3 class="slide-title">Messages</h3>
                         <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent (demo)!');">
                             <div class="form-group">
                                 <input type="text" placeholder="Your Name" required>
@@ -561,6 +691,7 @@
         let currentIndex = 0;
         const track = document.getElementById('track');
         const slides = document.querySelectorAll('.carousel-slide');
+        let autoSlideInterval;
 
         function moveSlide(direction) {
             currentIndex += direction;
@@ -569,6 +700,25 @@
 
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
+
+        // Auto-Slide Function
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                moveSlide(1);
+            }, 5000); // 5 seconds delay
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        // Pause on Hover
+        const carouselContainer = document.getElementById('carousel-container');
+        carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+        carouselContainer.addEventListener('mouseleave', startAutoSlide);
+
+        // Start initially
+        startAutoSlide();
 
     </script>
 </body>
