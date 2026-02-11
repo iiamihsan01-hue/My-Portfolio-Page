@@ -553,6 +553,15 @@
                         </div>
                     </div>
 
+                    <!-- Slide 2: Projects (Dynamic) -->
+                    <div class="carousel-slide">
+                        <h3 class="slide-title">My Projects</h3>
+                        <div id="projects-container"
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; width: 100%;">
+                            <p style="text-align:center; width:100%;">Loading projects...</p>
+                        </div>
+                    </div>
+
                     <!-- Slide 2: Skills -->
                     <div class="carousel-slide">
                         <h3 class="slide-title">Technical Expertise</h3>
@@ -649,12 +658,14 @@
                     <!-- Slide 5: Contact -->
                     <div class="carousel-slide">
                         <h3 class="slide-title">Messages</h3>
-                        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent!');">
-                            <div class="form-group"><input type="text" placeholder="Your Name" required></div>
-                            <div class="form-group"><input type="email" placeholder="Your Email" required></div>
-                            <div class="form-group"><textarea rows="3" placeholder="Write your message here..."
-                                    required></textarea></div>
-                            <button type="submit" class="submit-btn">Send Message</button>
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group"><input type="text" id="msgName" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group"><input type="email" id="msgEmail" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group"><textarea id="msgContent" rows="3"
+                                    placeholder="Write your message here..." required></textarea></div>
+                            <button type="submit" class="submit-btn" id="msgBtn">Send Message</button>
                         </form>
                     </div>
 
@@ -798,6 +809,70 @@
 
             goToSlide(currentIndex);
         }
+
+        // --- API Integration ---
+
+        // Load Projects
+        async function loadProjects() {
+            try {
+                const res = await fetch('/api/projects');
+                const projects = await res.json();
+                const container = document.getElementById('projects-container');
+
+                if (projects.length === 0) {
+                    container.innerHTML = '<p>No projects added yet.</p>';
+                    return;
+                }
+
+                container.innerHTML = projects.map(p => `
+                    <div style="background:rgba(255,255,255,0.05); padding:1rem; border-radius:10px; border:1px solid #333;">
+                        <img src="${p.imageUrl}" style="width:100%; height:150px; object-fit:cover; border-radius:5px; margin-bottom:0.5rem;" onerror="this.src='https://via.placeholder.com/300'">
+                        <h4 style="margin-bottom:0.5rem;">${p.title}</h4>
+                        <p style="font-size:0.8rem; color:#888; margin-bottom:0.5rem;">${p.description.substring(0, 60)}...</p>
+                        ${p.link ? `<a href="${p.link}" target="_blank" style="font-size:0.8rem; color:var(--text-main); text-decoration:underline;">View Project</a>` : ''}
+                    </div>
+                `).join('');
+            } catch (err) {
+                console.error('Error loading projects:', err);
+                document.getElementById('projects-container').innerHTML = '<p>Failed to load projects.</p>';
+            }
+        }
+        loadProjects();
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('msgBtn');
+            const originalText = btn.innerText;
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
+
+            const data = {
+                name: document.getElementById('msgName').value,
+                email: document.getElementById('msgEmail').value,
+                content: document.getElementById('msgContent').value
+            };
+
+            try {
+                const res = await fetch('/api/messages', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (res.ok) {
+                    alert('Message sent successfully!');
+                    e.target.reset();
+                } else {
+                    alert('Failed to send message.');
+                }
+            } catch (err) {
+                alert('Error sending message.');
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        });
 
         function drag(event) {
             if (isDragging) {
