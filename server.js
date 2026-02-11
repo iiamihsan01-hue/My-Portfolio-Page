@@ -18,13 +18,19 @@ const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
-app.use(express.static('.'));
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/portfolio')
+const dbUri = process.env.MONGODB_URI;
+if (!dbUri) {
+    console.error('FATAL ERROR: MONGODB_URI is not defined.');
+    process.exit(1);
+}
+
+mongoose.connect(dbUri)
     .then(async () => {
-        console.log('MongoDB Connected');
+        console.log('✅ MongoDB Connected to Cloud');
         // Seed Admin User
         const adminExists = await User.findOne({ username: 'admin' });
         if (!adminExists) {
@@ -106,10 +112,10 @@ app.get('/api/messages', auth, async (req, res) => {
 });
 
 
-// Serve Admin Panel explicitly if needed, but static 'public' handles it.
-// Default Route
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+// Serve Admin Panel explicitly if needed, although static 'public' handles it if structured right.
+// Default Route -> Serves the main portfolio page
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(PORT, () => {
