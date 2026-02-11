@@ -90,7 +90,7 @@
                 }
             } catch (err) {
                 console.error(err);
-                document.getElementById('error').innerText = 'Server error';
+                document.getElementById('error').innerText = 'Error: ' + err.message;
                 document.getElementById('error').style.display = 'block';
             }
         });

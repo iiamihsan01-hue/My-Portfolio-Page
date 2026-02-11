@@ -860,14 +860,18 @@
                     body: JSON.stringify(data)
                 });
 
+                const result = await res.json();
+
                 if (res.ok) {
                     alert('Message sent successfully!');
                     e.target.reset();
                 } else {
-                    alert('Failed to send message.');
+                    alert('Failed to send message: ' + (result.error || 'Unknown error'));
+                    console.error('Server Error:', result);
                 }
             } catch (err) {
-                alert('Error sending message.');
+                console.error('Network/Fetch Error:', err);
+                alert('Error sending message: ' + err.message);
             } finally {
                 btn.innerText = originalText;
                 btn.disabled = false;
