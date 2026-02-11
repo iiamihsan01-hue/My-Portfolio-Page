@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ihsan Najeeb - Full Stack Developer Portfolio
 
 Welcome to the repository for my personal portfolio website. This project showcases my skills, experience, and projects as a Full Stack Developer. It features a dynamic, interactive frontend and a robust backend for managing content.
@@ -81,3 +82,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 *Created by Ihsan Najeeb*
+=======
+
+>>>>>>> 808040b1de21de9379cfb12f6e8f43bb7054d2ac
