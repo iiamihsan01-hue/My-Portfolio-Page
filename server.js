@@ -22,10 +22,7 @@ app.use(express.static('public'));
 app.use(express.static('.'));
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/portfolio')
     .then(async () => {
         console.log('MongoDB Connected');
         // Seed Admin User
@@ -36,7 +33,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio
             console.log('Admin user created: admin / password123');
         }
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log('MongoDB Error:', err));
 
 // Auth Middleware
 const auth = (req, res, next) => {
