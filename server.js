@@ -114,7 +114,7 @@ app.get('/api/messages', auth, async (req, res) => {
 
 // Serve Admin Panel explicitly if needed, although static 'public' handles it if structured right.
 // Default Route -> Serves the main portfolio page
-app.get('*', (req, res) => {
+app.get(/.*/, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
