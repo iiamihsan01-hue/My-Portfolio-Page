@@ -39,7 +39,17 @@ mongoose.connect(dbUri)
             console.log('Admin user created: admin / password123');
         }
     })
-    .catch(err => console.log('MongoDB Error:', err));
+    .catch(err => {
+        console.error('❌ MongoDB Initial Connection Error:', err);
+    });
+
+mongoose.connection.on('error', err => {
+    console.error('❌ MongoDB Runtime Error:', err);
+});
+
+mongoose.connection.on('disconnected', () => {
+    console.log('⚠️ MongoDB Disconnected');
+});
 
 // Auth Middleware
 const auth = (req, res, next) => {
