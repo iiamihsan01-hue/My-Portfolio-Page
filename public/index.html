@@ -62,6 +62,7 @@
             text-transform: uppercase;
             background: linear-gradient(90deg, #555, #fff, #555);
             background-size: 200% auto;
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: matteShine 4s linear infinite;
@@ -338,7 +339,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.95);
-            z-index: 2000;
+            z-index: 10000;
             display: none;
             align-items: center;
             justify-content: center;
@@ -591,28 +592,28 @@
                         <div class="cert-grid">
                             <!-- 6 Image Slots -->
                             <div class="cert-item"
-                                onclick="openModal('https://via.placeholder.com/800x600/333/fff?text=AWS+Certificate')">
+                                data-full-img="https://i.ibb.co/K498VhQ/UC-26dd71bd-6e97-4d56-b7d0-61be809f9fc9.png">
                                 <img src="https://i.ibb.co/K498VhQ/UC-26dd71bd-6e97-4d56-b7d0-61be809f9fc9.png"
                                     alt="Cert 1">
                             </div>
                             <div class="cert-item"
-                                onclick="openModal('https://via.placeholder.com/800x600/333/fff?text=Oracle+Certified')">
+                                data-full-img="https://via.placeholder.com/800x600/333/fff?text=Oracle+Certified">
                                 <img src="https://via.placeholder.com/400x300/333/fff?text=Oracle" alt="Cert 2">
                             </div>
                             <div class="cert-item"
-                                onclick="openModal('https://via.placeholder.com/800x600/333/fff?text=Web+Bootcamp')">
+                                data-full-img="https://via.placeholder.com/800x600/333/fff?text=Web+Bootcamp">
                                 <img src="https://via.placeholder.com/400x300/333/fff?text=Full+Stack" alt="Cert 3">
                             </div>
                             <div class="cert-item"
-                                onclick="openModal('https://via.placeholder.com/800x600/333/fff?text=UI+UX+Design')">
+                                data-full-img="https://via.placeholder.com/800x600/333/fff?text=UI+UX+Design">
                                 <img src="https://via.placeholder.com/400x300/333/fff?text=UI/UX" alt="Cert 4">
                             </div>
                             <div class="cert-item"
-                                onclick="openModal('https://via.placeholder.com/800x600/333/fff?text=Security+')">
+                                data-full-img="https://via.placeholder.com/800x600/333/fff?text=Security+">
                                 <img src="https://via.placeholder.com/400x300/333/fff?text=Security" alt="Cert 5">
                             </div>
                             <div class="cert-item"
-                                onclick="openModal('https://via.placeholder.com/800x600/333/fff?text=Data+Science')">
+                                data-full-img="https://via.placeholder.com/800x600/333/fff?text=Data+Science">
                                 <img src="https://via.placeholder.com/400x300/333/fff?text=Data" alt="Cert 6">
                             </div>
                         </div>
@@ -683,8 +684,8 @@
     </div>
 
     <!-- Modal for Certifications -->
-    <div class="modal-overlay" id="modal" onclick="closeModal()">
-        <div class="modal-close">&times;</div>
+    <div class="modal-overlay" id="modal">
+        <div class="modal-close" onclick="closeModal()">&times;</div>
         <img class="modal-img" id="modal-img" src="" alt="Full Screen Cert">
     </div>
 
@@ -740,6 +741,7 @@
         let currentIndex = 0;
         let startX = 0;
         let isDragging = false;
+        let wasDragging = false; // To distinguish click vs drag
         let currentTranslate = 0;
         let prevTranslate = 0;
         let animationID;
@@ -791,6 +793,7 @@
 
         function startDrag(event) {
             isDragging = true;
+            wasDragging = false;
             startX = getPositionX(event);
             animationID = requestAnimationFrame(animation);
             container.style.cursor = 'grabbing';
@@ -803,6 +806,14 @@
             container.style.cursor = 'grab';
 
             const movedBy = currentTranslate - prevTranslate;
+
+            // If movement is significant, consider it a drag
+            if (Math.abs(movedBy) > 1) {
+                wasDragging = true;
+            } else {
+                wasDragging = false;
+            }
+
             // Threshold to change slide (e.g. 10%)
             if (movedBy < -10) currentIndex += 1;
             if (movedBy > 10) currentIndex -= 1;
@@ -917,13 +928,43 @@
             const modal = document.getElementById('modal');
             const modalImg = document.getElementById('modal-img');
             modalImg.src = imgSrc;
-            modal.classList.add('open');
+            modal.style.display = 'flex'; // Ensure display is flex
+            // Small timeout to allow transition
+            setTimeout(() => {
+                modal.classList.add('open');
+            }, 10);
         }
+
+        // Handle Image Errors in Modal
+        document.getElementById('modal-img').onerror = function () {
+            this.src = 'https://via.placeholder.com/800x600?text=Image+Not+Found';
+        };
+
+        // Add Event Listeners for Cert Items
+        document.querySelectorAll('.cert-item').forEach(item => {
+            item.addEventListener('click', () => {
+                if (!wasDragging) {
+                    const fullImg = item.getAttribute('data-full-img');
+                    if (fullImg) openModal(fullImg);
+                }
+            });
+        });
 
         function closeModal() {
             const modal = document.getElementById('modal');
             modal.classList.remove('open');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.getElementById('modal-img').src = ''; // Clear source to stop partial rendering
+            }, 300); // Wait for transition
         }
+
+        // Close modal when clicking outside the image
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        });
 
     </script>
 </body>
