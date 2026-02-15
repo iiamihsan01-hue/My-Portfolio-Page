@@ -514,77 +514,6 @@
             color: var(--accent-light);
         }
 
-        /* ==================== PROJECTS SECTION ==================== */
-
-        #projects {
-            background: var(--bg-secondary);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            border: 2px solid var(--border-color);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-primary);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background: var(--bg-primary);
-        }
-
-        .project-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            color: var(--text-primary);
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
-
-        .project-description {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            flex-grow: 1;
-            margin-bottom: 1rem;
-        }
-
-        .project-link {
-            color: var(--accent-light);
-            font-weight: 600;
-            font-size: 0.9rem;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
-            display: inline-block;
-            padding-bottom: 2px;
-        }
-
-        .project-link:hover {
-            border-bottom-color: var(--accent-light);
-        }
-
         /* ==================== CERTIFICATIONS SECTION ==================== */
 
         #certifications {
@@ -882,7 +811,6 @@
             <a href="#hero" class="nav-link active" data-section="hero">Home</a>
             <a href="#education" class="nav-link" data-section="education">Education</a>
             <a href="#skills" class="nav-link" data-section="skills">Skills</a>
-            <a href="#projects" class="nav-link" data-section="projects">Projects</a>
             <a href="#certifications" class="nav-link" data-section="certifications">Certifications</a>
             <a href="#contact" class="nav-link" data-section="contact">Contact</a>
         </nav>
@@ -909,7 +837,7 @@
                             d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                     </svg>
                 </a>
-                <a href="https://github.com/iiamihsan01" class="social-icon-link" target="_blank">
+                <a href="https://github.com/Darshanjack29" class="social-icon-link" target="_blank">
                     <svg viewBox="0 0 24 24">
                         <path
                             d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
@@ -933,11 +861,12 @@
                             An innovative developer crafting seamless digital solutions.
                             Passionate about creating meaningful experiences through code and design.
                         </p>
-                        <a href="#projects" class="cta-btn">Explore My Work</a>
+                        <a href="#skills" class="cta-btn">Explore My Work</a>
                     </div>
                     <div class="hero-image">
                         <div class="profile-container" id="profile-card">
-                            <img src="https://i.ibb.co/776PRxH/IMG-2377.jpg" alt="Darshan" class="profile-img"
+                            <img src="https://i.ibb.co/0yb75Ym3/Whats-App-Image-2026-02-15-at-22-15-50.jpg"
+                                alt="Darshan" class="profile-img"
                                 onerror="this.src='https://via.placeholder.com/500x600/2d2419/a67c52?text=Profile'">
                         </div>
                     </div>
@@ -995,19 +924,6 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-            <div class="section-inner">
-                <div class="section-header">
-                    <h2 class="section-title">My Projects</h2>
-                    <p class="section-subtitle">Recent work and creative endeavors</p>
-                </div>
-                <div id="projects-container" class="projects-grid">
-                    <div class="loading">Loading projects...</div>
-                </div>
-            </div>
-        </section>
-
         <!-- Certifications Section -->
         <section id="certifications" class="section">
             <div class="section-inner">
@@ -1017,9 +933,8 @@
                 </div>
                 <div class="cert-grid">
                     <div class="cert-item"
-                        data-full-img="https://i.ibb.co/K498VhQ/UC-26dd71bd-6e97-4d56-b7d0-61be809f9fc9.png">
-                        <img src="https://i.ibb.co/K498VhQ/UC-26dd71bd-6e97-4d56-b7d0-61be809f9fc9.png"
-                            alt="Certification 1">
+                        data-full-img="https://via.placeholder.com/800x600/2d2419/a67c52?text=Certificate+1">
+                        <img src="https://via.placeholder.com/400x300/2d2419/a67c52?text=Cert+1" alt="Certification 1">
                     </div>
                     <div class="cert-item"
                         data-full-img="https://via.placeholder.com/800x600/2d2419/a67c52?text=Oracle+Certified">
@@ -1163,39 +1078,7 @@
             profileCard.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
         });
 
-        // ==================== LOAD PROJECTS ====================
-        async function loadProjects() {
-            try {
-                const res = await fetch('/api/projects');
-                const projects = await res.json();
-                const container = document.getElementById('projects-container');
-
-                if (projects.length === 0) {
-                    container.innerHTML = '<div class="loading">No projects added yet.</div>';
-                    return;
-                }
-
-                container.innerHTML = projects.map(p => `
-                    <div class="project-card">
-                        <img src="${p.imageUrl}" 
-                             class="project-image" 
-                             alt="${p.title}"
-                             onerror="this.src='https://via.placeholder.com/400x200/2d2419/a67c52?text=Project'">
-                        <div class="project-content">
-                            <h3 class="project-title">${p.title}</h3>
-                            <p class="project-description">${p.description.substring(0, 100)}${p.description.length > 100 ? '...' : ''}</p>
-                            ${p.link ? `<a href="${p.link}" target="_blank" class="project-link">View Project →</a>` : ''}
-                        </div>
-                    </div>
-                `).join('');
-            } catch (err) {
-                console.error('Error loading projects:', err);
-                document.getElementById('projects-container').innerHTML =
-                    '<div class="loading">Failed to load projects.</div>';
-            }
-        }
-
-        loadProjects();
+        // ==================== REMOVED PROJECTS SECTION ====================
 
         // ==================== CONTACT FORM ====================
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
