@@ -1,0 +1,121 @@
+[33mcommit cc5bb0f7254f991ce9605d770f66b0c46e3787d2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Sun Feb 15 22:47:47 2026 +0530
+
+    Initial portfolio setup
+
+[33mcommit 65dde756cfb69f718767edf07cbabdb148c084fa[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Sun Feb 15 22:27:57 2026 +0530
+
+    first commit
+
+[33mcommit e205da19e606a65ef0567928c9ba59a1aed449d7[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 23:15:50 2026 +0530
+
+    bug fixed
+
+[33mcommit 800a5d7b5d8561eefb137a7ae2688418fe3d8810[m
+Merge: dec4aea 808040b
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 22:33:56 2026 +0530
+
+    bug fixed
+
+[33mcommit dec4aea1a7fe8175740cecd2b11cfbd9def400e3[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 22:29:19 2026 +0530
+
+    bug fixed
+
+[33mcommit 808040b1de21de9379cfb12f6e8f43bb7054d2ac[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 21:43:15 2026 +0530
+
+    Update README.md
+
+[33mcommit d9a2496b04ada5253f477df8f722c85f46728f9a[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 17:51:37 2026 +0530
+
+    Add DB connection logging
+
+[33mcommit 22d44dc4e40f378892204e300db37f9559ebb33a[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 17:44:55 2026 +0530
+
+    Fix wildcard route for Express 5
+
+[33mcommit 50006e91b575d0cd8285323109e3e06adf37b31e[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 17:28:56 2026 +0530
+
+    update
+
+[33mcommit 834bf5bdef8ffbb8dd566b1ae6162b6afe5adbbe[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 16:45:05 2026 +0530
+
+    update
+
+[33mcommit ad6823c846cf53a6ad68cf8d9b566cf35ba119f9[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 16:17:35 2026 +0530
+
+    update
+
+[33mcommit 33bca970352236592c8cb3939c38d363b1c9d0f2[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 15:43:11 2026 +0530
+
+    update
+
+[33mcommit ae330ee462a6ca94a6ff1e75bc59841323b26e1c[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 12:27:09 2026 +0530
+
+    update
+
+[33mcommit 9e5afc85b3dffa93ffeeb155d662ac8a0d48ac54[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 11:21:07 2026 +0530
+
+    update
+
+[33mcommit 39128f84dea9320e321ac07a2338d7a84b8547ae[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 01:34:01 2026 +0530
+
+    update
+
+[33mcommit a99eacea11de72055d481ebd83ab188a7b21ca30[m
+Merge: dba6f40 37c1b0b
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 01:29:07 2026 +0530
+
+    update
+
+[33mcommit dba6f40e428d7dccc4a9d8ca570c179de6e422fd[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 01:20:24 2026 +0530
+
+    update
+
+[33mcommit 37c1b0be496a4c41796f5b0f57076350c8ab87f3[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 01:10:34 2026 +0530
+
+    Add portfolio link to README
+
+[33mcommit e6bd30fb9733818c80eaf9b051763b2527b0367a[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 01:08:09 2026 +0530
+
+    update
+
+[33mcommit 6421a078051f55237d68fbd7a345f33028cb9fd8[m
+Author: iiamihsan01-hue <iiam.ihsan01@gmail.com>
+Date:   Wed Feb 11 00:54:35 2026 +0530
+
+    update
