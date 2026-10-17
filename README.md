@@ -4,8 +4,23 @@ Welcome to the repository for my personal portfolio website. This project showca
 
 ## 🔗 Live Demo
 
-Check out the live version of my portfolio here:
+Check out the live version of my portfolio:
+
+### Option 1: Local Development
+Run the server locally:
+```bash
+npm run dev  # Development mode with hot reload
+# Access at: http://localhost:3000
+```
+
+### Option 2: Deployed Version
 👉 **[View Portfolio Website](https://my-portfolio-iiamihsan01.netlify.app/)**
+
+> If the Netlify link shows the README, navigate directly to the root path or check deployment settings.
+
+### Option 3: GitHub Pages (Static Preview)
+The `public/index.html` can also be viewed via GitHub:
+👉 **[GitHub Portfolio Files](https://github.com/iiamihsan01-hue/My-Portfolio-Page/tree/main/public)**
 
 ---
 
