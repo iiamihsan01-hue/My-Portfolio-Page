@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Ihsan Najeeb - Full Stack Developer Portfolio
 
 Welcome to the repository for my personal portfolio website. This project showcases my skills, experience, and projects as a Full Stack Developer. It features a dynamic, interactive frontend and a robust backend for managing content.
@@ -6,7 +5,7 @@ Welcome to the repository for my personal portfolio website. This project showca
 ## 🔗 Live Demo
 
 Check out the live version of my portfolio here:
-👉 **[View Portfolio Website](https://iiamihsan01-hue.github.io/My-Portfolio-Page/)**
+👉 **[View Portfolio Website](https://my-portfolio-iiamihsan01.netlify.app/)**
 
 ---
 
@@ -17,18 +16,21 @@ Check out the live version of my portfolio here:
 - **Interactive UI**: Custom animations, 3D tilt effects, and smooth transitions.
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices.
 - **Contact Form**: Functional contact form integrated with the backend database.
+- **Dark Mode**: Monochrome design system with excellent contrast and readability.
 
 ## 🛠 Tech Stack
 
 **Frontend:**
 - HTML5, CSS3 (Custom Design System)
 - JavaScript (ES6+, Async/Await)
+- 3D Tilt Effects & Custom Animations
 
 **Backend:**
 - Node.js & Express.js
 - MongoDB & Mongoose (Database)
 - JWT (JSON Web Tokens) for Authentication
 - BCryptJS for Password Hashing
+- CORS enabled for API access
 
 ## 🚀 Installation & Setup
 
@@ -69,19 +71,30 @@ To run this project locally, follow these steps:
 ## 📂 Project Structure
 
 ```
-├── public/          # Static assets (HTML, CSS, JS, Images)
-├── models/          # MongoDB Schema Models (User, Project, Message)
-├── server.js        # Main Express server entry point
-├── package.json     # Project dependencies and scripts
-└── .env             # Environment variables (not committed)
+├── public/
+│   ├── index.html          # Main portfolio page
+│   ├── admin/              # Admin panel interface
+│   └── styles/             # CSS files
+├── models/
+│   ├── User.js             # User schema for authentication
+│   ├── Project.js          # Project schema
+│   └── Message.js          # Contact form messages
+├── server.js               # Main Express server entry point
+├── package.json            # Project dependencies and scripts
+└── .env                    # Environment variables (not committed)
 ```
+
+## 🔐 Security Features
+
+- JWT-based authentication for admin access
+- BCryptJS password hashing
+- CORS protection
+- Environment variable configuration for sensitive data
 
 ## 📝 License
 
 This project is open source and available under the [MIT License](LICENSE).
 
 ---
-*Created by Ihsan Najeeb*
-=======
 
->>>>>>> 808040b1de21de9379cfb12f6e8f43bb7054d2ac
+*Created by Ihsan Najeeb | Last Updated: October 2026*
